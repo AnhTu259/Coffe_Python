@@ -1,0 +1,145 @@
+.review {
+  position: relative;
+  background: radial-gradient(circle at top, rgba(212, 175, 55, 0.15), transparent 45%), #050505;
+  padding: 120px 20px;
+  overflow: hidden;
+}
+
+.review::after {
+  content: '';
+  position: absolute;
+  inset: 60px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 32px;
+  pointer-events: none;
+}
+
+.review-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.review .section-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+}
+
+.review .section-title {
+  text-align: left;
+  color: #ffffff;
+}
+
+.review-grid {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.review-card {
+  position: relative;
+  padding: 40px 30px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(18px);
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease, border-color 0.5s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-15px) rotateX(6deg);
+  border-color: rgba(212, 175, 55, 0.6);
+}
+
+.review-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.2), transparent 60%);
+  opacity: 0.7;
+}
+
+.review-quote {
+  font-size: 4rem;
+  color: rgba(212, 175, 55, 0.6);
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.review-text {
+  position: relative;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.review-meta {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.review-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f2dfa7, #a57439);
+  color: #0f0f0f;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
+}
+
+.review-name {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.review-role {
+  margin: 4px 0 0;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.9rem;
+}
+
+.review-rating {
+  margin-left: auto;
+  color: #d4af37;
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+}
+
+.review-rating .fa-star {
+  margin-left: 4px;
+}
+
+@media (max-width: 768px) {
+  .review {
+    padding: 80px 15px;
+  }
+
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .review-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .review-rating {
+    margin-left: 0;
+  }
+}

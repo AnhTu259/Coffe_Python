@@ -1,0 +1,39 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: dazzy-backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app
+      - ./backend/data:/app/data
+    environment:
+      - PYTHONUNBUFFERED=1
+      - DATABASE_DIR=/app/data
+      - CORS_ORIGINS=http://localhost:3000,http://localhost:4173
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        REACT_APP_API_URL: "http://localhost:5000"
+    container_name: dazzy-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  admin:
+    build:
+      context: ./admin
+      args:
+        REACT_APP_ADMIN_API: "http://localhost:5000"
+    container_name: dazzy-admin
+    ports:
+      - "4173:80"
+    depends_on:
+      - backend
+    restart: unless-stopped

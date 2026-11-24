@@ -1,0 +1,129 @@
+/* ---- TỔNG THỂ FOOTER ---- */
+.footer-tch {
+  background-color: #000000;
+  color: #a0a0a0; /* Màu chữ xám nhạt */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+}
+
+/* Container chung để căn giữa nội dung */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---- 1. PHẦN NỘI DUNG CHÍNH (4 CỘT) ---- */
+.footer-main {
+  padding: 60px 0;
+  border-bottom: 1px solid #333; /* Đường kẻ ngăn cách */
+}
+
+/* Dùng CSS Grid để tạo 4 cột hoàn hảo */
+.footer-main .footer-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cột bằng nhau */
+  gap: 30px; /* Khoảng cách giữa các cột */
+}
+
+.footer-column h3 {
+  color: #ffffff;
+  font-size: 16px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.footer-column a,
+.footer-column p {
+  display: block;
+  color: #a0a0a0;
+  text-decoration: none;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.footer-column a:hover {
+  color: #ffffff;
+}
+
+/* Cột 4: Logo, App, QR, Social */
+.footer-logo {
+  max-width: 180px; /* Điều chỉnh kích thước logo */
+  margin-bottom: 15px;
+}
+
+.footer-app-link {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 5px !important; /* Ghi đè */
+}
+.footer-app-link.orange {
+  color: #E57905; /* Màu cam của The Coffee House */
+}
+
+.footer-download {
+  display: flex;
+  align-items: flex-start; /* Căn theo lề trên */
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.footer-qr {
+  width: 80px;
+  height: 80px;
+  background: white; /* Thường QR có nền trắng */
+  padding: 5px;
+}
+
+.footer-social h3 {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #E57905; /* Màu cam */
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  color: #ffffff;
+  background-color: #333;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.social-icons a:hover {
+  background-color: #E57905;
+}
+
+/* ---- 2. PHẦN THANH PHÁP LÝ (DƯỚI CÙNG) ---- */
+.footer-bottom-bar {
+  background-color: #000000;
+  padding: 30px 0;
+}
+
+.footer-bottom-bar p {
+  margin: 5px 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* ---- RESPONSIVE CHO ĐIỆN THOẠI ---- */
+@media (max-width: 992px) {
+  .footer-main .footer-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 cột trên tablet */
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-main .footer-container {
+    grid-template-columns: 1fr; /* 1 cột trên mobile */
+  }
+}

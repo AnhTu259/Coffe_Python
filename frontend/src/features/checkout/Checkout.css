@@ -1,0 +1,322 @@
+﻿.checkout-page {
+  min-height: 100vh;
+  background: #1a1a1a;
+  padding: 80px 20px 60px;
+}
+
+.checkout-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.checkout-title {
+  text-align: center;
+  font-size: 3em;
+  color: #D4AF37;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.checkout-content {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.checkout-form-section,
+.checkout-summary {
+  background: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  border-radius: 15px;
+  padding: 32px 32px 28px;
+}
+
+.checkout-form-section {
+  position: relative;
+  z-index: 2;
+}
+
+.checkout-form-section h2,
+.checkout-summary h2 {
+  color: #D4AF37;
+  font-size: 1.8em;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.checkout-form .form-group {
+  margin-bottom: 18px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* giá»¯ khoáº£ng cÃ¡ch Ä‘á»ƒ label khÃ´ng Ä‘Ã¨ lÃªn input */
+}
+
+.checkout-form label {
+  display: block;
+  color: #ffffff;
+  font-weight: 600;
+  margin: 0; /* dÃ¹ng gap thay vÃ¬ margin Ä‘á»ƒ trÃ¡nh label chá»“ng lÃªn input */
+  font-size: 15px;
+}
+
+.checkout-form input,
+.checkout-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  background: #1a1a1a;
+  border: 1px solid #3a3a3a;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 15px;
+  font-family: 'Barlow', sans-serif;
+  transition: border-color 0.3s;
+  line-height: 1.6;
+}
+
+.checkout-form input:focus,
+.checkout-form textarea:focus {
+  outline: none;
+  border-color: #D4AF37;
+}
+
+.checkout-form textarea {
+  min-height: 120px; /* giá»¯ Ã´ ghi chÃº Ä‘á»§ cao, khÃ´ng chá»“ng lÃªn pháº§n khÃ¡c */
+}
+
+.checkout-form textarea::placeholder,
+.checkout-form input::placeholder {
+  color: #aaaaaa; /* tÄƒng Ä‘á»™ tÆ°Æ¡ng pháº£n placeholder trÃªn ná»n tá»‘i */
+  opacity: 1;
+}
+
+.checkout-form input.error,
+.checkout-form textarea.error {
+  border-color: #ff6b6b;
+}
+
+.checkout-form input:invalid,
+.checkout-form textarea:invalid {
+  box-shadow: none;
+  background: #1a1a1a;
+  border-color: #3a3a3a;
+}
+
+.error-message {
+  display: block;
+  color: #ff6b6b;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.payment-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 8px;
+  margin-bottom: 40px; /* Tăng khoảng cách dưới */
+  width: 100%;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  background: #1a1a1a;
+  border: 1px solid #3a3a3a;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.3s, background-color 0.3s;
+  width: auto; /* Để flexbox tự quản lý */
+  box-sizing: border-box;
+}
+
+.payment-option:hover {
+  border-color: #D4AF37;
+  background: rgba(212, 175, 55, 0.05);
+  transform: none;
+}
+
+.payment-option input[type="radio"] {
+  width: auto;
+  margin: 0;
+  cursor: pointer;
+}
+
+.payment-option span {
+  color: #ffffff;
+  font-size: 15px;
+}
+
+/* Fix overlapping caused by global .form-group label rules (e.g., in AuthForm.css)
+   Ensure checkout labels and payment options are not absolutely positioned */
+.checkout-form .form-group > label {
+  position: static;
+}
+
+.checkout-form .payment-option {
+  position: static;
+}
+
+.submit-order-btn {
+  width: 100%;
+  padding: 18px;
+  background: #D4AF37;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Barlow', sans-serif;
+  margin-top: 30px;
+}
+
+.submit-order-btn:hover:not(:disabled) {
+  background: #c9a030;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+}
+
+.submit-order-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.checkout-summary {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+  z-index: 0;
+}
+
+.order-items {
+  margin-bottom: 30px;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #3a3a3a;
+  gap: 12px;
+}
+
+.order-item:last-child {
+  border-bottom: none;
+}
+
+.order-item-info h4 {
+  color: #ffffff;
+  font-size: 1em;
+  margin: 0 0 5px 0;
+  font-weight: 600;
+}
+
+.order-item-info p {
+  color: #888;
+  font-size: 0.9em;
+  margin: 0;
+}
+
+.order-item-price {
+  color: #D4AF37;
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.order-total {
+  border-top: 2px solid #D4AF37;
+  padding-top: 20px;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  color: #ffffff;
+  font-size: 1em;
+}
+
+.total-row.final {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #D4AF37;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #3a3a3a;
+}
+
+.checkout-empty {
+  text-align: center;
+  padding: 100px 20px;
+  color: #ffffff;
+}
+
+.checkout-empty h2 {
+  font-size: 2.5em;
+  color: #D4AF37;
+  margin-bottom: 20px;
+}
+
+.checkout-empty p {
+  font-size: 1.2em;
+  color: #cccccc;
+  margin-bottom: 30px;
+}
+
+.back-to-shop-btn {
+  background: #D4AF37;
+  color: #1a1a1a;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.back-to-shop-btn:hover {
+  background: #c9a030;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 968px) {
+  .checkout-content {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-summary {
+    position: static;
+  }
+
+  .checkout-title {
+    font-size: 2.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  .checkout-page {
+    padding: 80px 15px 40px;
+  }
+
+  .checkout-form-section,
+  .checkout-summary {
+    padding: 25px;
+  }
+
+  .checkout-title {
+    font-size: 2em;
+  }
+}
+
+

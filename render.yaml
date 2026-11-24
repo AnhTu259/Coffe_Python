@@ -1,0 +1,48 @@
+services:
+  # ---------- BACKEND (FastAPI) ----------
+  - type: web
+    name: dazzycoffee-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: CORS_ORIGINS
+        value: https://dazzycoffee-web.onrender.com,https://dazzycoffee-admin.onrender.com
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_PASSWORD
+        sync: false   # Render sẽ hỏi bạn nhập mật khẩu admin khi tạo Blueprint
+
+  # ---------- WEB KHÁCH HÀNG (React) ----------
+  - type: web
+    name: dazzycoffee-web
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && CI=false npm run build
+    staticPublishPath: build
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://dazzycoffee-api.onrender.com
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+  # ---------- TRANG ADMIN (React) ----------
+  - type: web
+    name: dazzycoffee-admin
+    runtime: static
+    rootDir: admin
+    buildCommand: npm install && CI=false npm run build
+    staticPublishPath: build
+    envVars:
+      - key: REACT_APP_ADMIN_API
+        value: https://dazzycoffee-api.onrender.com
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
